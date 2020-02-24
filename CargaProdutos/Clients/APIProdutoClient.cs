@@ -41,7 +41,7 @@ namespace CargaProdutos.Clients
 
         public void Autenticar()
         {
-            // Envio da requisição a fim de autenticar
+            // Envio da requisiï¿½ï¿½o a fim de autenticar
             // e obter o token de acesso
             var requestMessage =
                 new HttpRequestMessage(HttpMethod.Post, "login");
@@ -62,7 +62,7 @@ namespace CargaProdutos.Clients
                 _token = JsonConvert.DeserializeObject<Token>(conteudo);
             else
                 _token = null;
-        }
+        }  
 
         private RetryPolicy<HttpResponseMessage> CreateAccessTokenPolicy()
         {
@@ -73,7 +73,7 @@ namespace CargaProdutos.Clients
                 {
                     Autenticar();
                     if (!(_token?.Authenticated ?? false))
-                        throw new InvalidOperationException("Token inválido!");
+                        throw new InvalidOperationException("Token invï¿½lido!");
 
                     context["AccessToken"] = _token.AccessToken;
                 });
